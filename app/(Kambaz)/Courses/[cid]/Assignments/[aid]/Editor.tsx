@@ -111,6 +111,15 @@ export default function AssignmentEditor() {
           <td>
           </td>
         </tr>
+        <tr>
+          <td align="right" valign="top">
+          </td>
+          <td>
+            <hr></hr>
+            <button id="cancel">Cancel</button><button id="save">Save</button>
+          </td>
+        </tr>
       </table>
+      
     </div>
 );}
