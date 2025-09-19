@@ -43,7 +43,7 @@ export default function AssignmentEditor() {
         </tr>
         <tr>
           <td align="right" valign="top">
-            <label htmlFor="wd-submisison-type">Submission Type</label>
+            <label htmlFor="wd-submission-type">Submission Type</label>
           </td>
           <td>
             <select id="wd-submission-type">
@@ -62,10 +62,10 @@ export default function AssignmentEditor() {
             <label htmlFor="wd-media-recordings">Media Recordings</label><br/>
 
             <input type="checkbox" id="wd-student-annotation"/>
-            <label htmlFor="wd-student-annotation">Student Annotation</label>
+            <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
 
             <input type="checkbox" id="wd-file-upload"/>
-            <label htmlFor="wd-file-upload">Student Annotation</label>
+            <label htmlFor="wd-file-upload">File upload</label>
           </td>
         </tr>
         <tr>
