@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 import Link from "next/link";
