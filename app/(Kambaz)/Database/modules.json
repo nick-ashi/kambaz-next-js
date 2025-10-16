@@ -1,0 +1,1094 @@
+[
+  {
+    "_id": "M101",
+    "name": "Introduction to Rocket Propulsion",
+    "description": "Basic principles of rocket propulsion and rocket engines.",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L101",
+        "name": "History of Rocketry",
+        "description": "A brief history of rocketry and space exploration.",
+        "module": "M101"
+      },
+      {
+        "_id": "L102",
+        "name": "Rocket Propulsion Fundamentals",
+        "description": "Basic principles of rocket propulsion.",
+        "module": "M101"
+      },
+      {
+        "_id": "L103",
+        "name": "Rocket Engine Types",
+        "description": "Overview of different types of rocket engines.",
+        "module": "M101"
+      }
+    ]
+  },
+  {
+    "_id": "M102",
+    "name": "Fuel and Combustion",
+    "description": "Understanding rocket fuel, combustion processes, and efficiency.",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L201",
+        "name": "Rocket Fuel",
+        "description": "Overview of different types of rocket fuels.",
+        "module": "M102"
+      },
+      {
+        "_id": "L202",
+        "name": "Combustion Processes",
+        "description": "Understanding combustion processes and efficiency.",
+        "module": "M102"
+      },
+      {
+        "_id": "L203",
+        "name": "Combustion Instability",
+        "description": "Understanding combustion instability and mitigation.",
+        "module": "M102"
+      }
+    ]
+  },
+  {
+    "_id": "M103",
+    "name": "Nozzle Design",
+    "description": "Principles of rocket nozzle design and performance optimization.",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L301",
+        "name": "Nozzle Design",
+        "description": "Overview of different types of rocket nozzles.",
+        "module": "M103"
+      },
+      {
+        "_id": "L302",
+        "name": "Nozzle Performance",
+        "description": "Understanding nozzle performance and efficiency.",
+        "module": "M103"
+      },
+      {
+        "_id": "L303",
+        "name": "Nozzle Optimization",
+        "description": "Optimizing nozzle design for specific applications.",
+        "module": "M103"
+      }
+    ]
+  },
+  {
+    "_id": "M201",
+    "name": "Fundamentals of Aerodynamics",
+    "description": "Basic aerodynamic concepts and fluid dynamics principles.",
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L401",
+        "name": "Fluid Dynamics Basics",
+        "description": "Introduction to fluid mechanics and flow principles.",
+        "module": "M201"
+      },
+      {
+        "_id": "L402",
+        "name": "Airfoil Theory",
+        "description": "Understanding lift generation and airfoil design.",
+        "module": "M201"
+      },
+      {
+        "_id": "L403",
+        "name": "Boundary Layer Analysis",
+        "description": "Study of boundary layer effects in aerodynamics.",
+        "module": "M201"
+      }
+    ]
+  },
+  {
+    "_id": "M202",
+    "name": "Subsonic and Supersonic Flow",
+    "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L501",
+        "name": "Subsonic Flow Characteristics",
+        "description": "Analysis of subsonic flow patterns and behavior.",
+        "module": "M202"
+      },
+      {
+        "_id": "L502",
+        "name": "Supersonic Flow Dynamics",
+        "description": "Understanding shock waves and supersonic phenomena.",
+        "module": "M202"
+      },
+      {
+        "_id": "L503",
+        "name": "Transonic Flow Effects",
+        "description": "Study of transonic flow and compressibility effects.",
+        "module": "M202"
+      }
+    ]
+  },
+  {
+    "_id": "M203",
+    "name": "Aerodynamic Heating",
+    "description": "Study of aerodynamic heating and thermal protection systems.",
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L601",
+        "name": "Heat Transfer Mechanisms",
+        "description": "Understanding convective and radiative heat transfer.",
+        "module": "M203"
+      },
+      {
+        "_id": "L602",
+        "name": "Thermal Protection Systems",
+        "description": "Design and analysis of thermal protection systems.",
+        "module": "M203"
+      },
+      {
+        "_id": "L603",
+        "name": "Hypersonic Heating",
+        "description": "Study of extreme heating in hypersonic flight.",
+        "module": "M203"
+      }
+    ]
+  },
+  {
+    "_id": "M301",
+    "name": "Spacecraft Structural Design",
+    "description": "Fundamentals of designing spacecraft structures and materials selection.",
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L701",
+        "name": "Structural Materials",
+        "description": "Properties and selection of aerospace materials.",
+        "module": "M301"
+      },
+      {
+        "_id": "L702",
+        "name": "Load Analysis",
+        "description": "Understanding loads and stresses in spacecraft structures.",
+        "module": "M301"
+      },
+      {
+        "_id": "L703",
+        "name": "Structural Testing",
+        "description": "Methods for testing spacecraft structural integrity.",
+        "module": "M301"
+      }
+    ]
+  },
+  {
+    "_id": "M302",
+    "name": "Orbital Mechanics",
+    "description": "Understanding orbital dynamics and mission planning.",
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L801",
+        "name": "Kepler's Laws",
+        "description": "Fundamental laws governing orbital motion.",
+        "module": "M302"
+      },
+      {
+        "_id": "L802",
+        "name": "Orbital Maneuvers",
+        "description": "Planning and executing orbital trajectory changes.",
+        "module": "M302"
+      },
+      {
+        "_id": "L803",
+        "name": "Mission Design",
+        "description": "Complete mission planning from launch to orbit.",
+        "module": "M302"
+      }
+    ]
+  },
+  {
+    "_id": "M303",
+    "name": "Spacecraft Systems Engineering",
+    "description": "Overview of spacecraft systems and subsystems engineering.",
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L901",
+        "name": "Power Systems",
+        "description": "Spacecraft electrical power generation and distribution.",
+        "module": "M303"
+      },
+      {
+        "_id": "L902",
+        "name": "Communication Systems",
+        "description": "Spacecraft communication and data handling systems.",
+        "module": "M303"
+      },
+      {
+        "_id": "L903",
+        "name": "Attitude Control",
+        "description": "Spacecraft orientation and control systems.",
+        "module": "M303"
+      }
+    ]
+  },
+  {
+    "_id": "M401",
+    "name": "Organic Molecular Structure",
+    "description": "Understanding the structure and bonding in organic molecules.",
+    "course": "RS104",
+    "lessons": [
+      {
+        "_id": "L1001",
+        "name": "Hybridization and Bonding",
+        "description": "Orbital hybridization and covalent bonding in organic compounds.",
+        "module": "M401"
+      },
+      {
+        "_id": "L1002",
+        "name": "Functional Groups",
+        "description": "Identification and properties of organic functional groups.",
+        "module": "M401"
+      },
+      {
+        "_id": "L1003",
+        "name": "Stereochemistry",
+        "description": "Three-dimensional structure and chirality in organic molecules.",
+        "module": "M401"
+      }
+    ]
+  },
+  {
+    "_id": "M402",
+    "name": "Organic Reactions and Mechanisms",
+    "description": "Study of organic reaction mechanisms and synthetic pathways.",
+    "course": "RS104",
+    "lessons": [
+      {
+        "_id": "L1101",
+        "name": "Substitution Reactions",
+        "description": "SN1 and SN2 mechanisms in organic synthesis.",
+        "module": "M402"
+      },
+      {
+        "_id": "L1102",
+        "name": "Elimination Reactions",
+        "description": "E1 and E2 elimination mechanisms and applications.",
+        "module": "M402"
+      },
+      {
+        "_id": "L1103",
+        "name": "Addition Reactions",
+        "description": "Electrophilic and nucleophilic addition mechanisms.",
+        "module": "M402"
+      }
+    ]
+  },
+  {
+    "_id": "M403",
+    "name": "Spectroscopy and Analysis",
+    "description": "Analytical techniques for organic compound identification.",
+    "course": "RS104",
+    "lessons": [
+      {
+        "_id": "L1201",
+        "name": "NMR Spectroscopy",
+        "description": "Nuclear magnetic resonance for structure determination.",
+        "module": "M403"
+      },
+      {
+        "_id": "L1202",
+        "name": "IR Spectroscopy",
+        "description": "Infrared spectroscopy for functional group identification.",
+        "module": "M403"
+      },
+      {
+        "_id": "L1203",
+        "name": "Mass Spectrometry",
+        "description": "Mass spectrometric analysis of organic compounds.",
+        "module": "M403"
+      }
+    ]
+  },
+  {
+    "_id": "M501",
+    "name": "Transition Metal Chemistry",
+    "description": "Study of transition metals and their coordination compounds.",
+    "course": "RS105",
+    "lessons": [
+      {
+        "_id": "L1301",
+        "name": "d-Orbital Theory",
+        "description": "Electronic structure and bonding in transition metals.",
+        "module": "M501"
+      },
+      {
+        "_id": "L1302",
+        "name": "Coordination Complexes",
+        "description": "Formation and properties of metal coordination compounds.",
+        "module": "M501"
+      },
+      {
+        "_id": "L1303",
+        "name": "Crystal Field Theory",
+        "description": "Understanding ligand field effects on metal centers.",
+        "module": "M501"
+      }
+    ]
+  },
+  {
+    "_id": "M502",
+    "name": "Solid State Chemistry",
+    "description": "Properties and structures of inorganic solid materials.",
+    "course": "RS105",
+    "lessons": [
+      {
+        "_id": "L1401",
+        "name": "Crystal Structures",
+        "description": "Understanding crystal lattices and unit cells.",
+        "module": "M502"
+      },
+      {
+        "_id": "L1402",
+        "name": "Defects and Properties",
+        "description": "Point defects and their effects on material properties.",
+        "module": "M502"
+      },
+      {
+        "_id": "L1403",
+        "name": "Electronic Properties",
+        "description": "Band theory and electrical properties of solids.",
+        "module": "M502"
+      }
+    ]
+  },
+  {
+    "_id": "M503",
+    "name": "Inorganic Synthesis",
+    "description": "Laboratory techniques for synthesizing inorganic compounds.",
+    "course": "RS105",
+    "lessons": [
+      {
+        "_id": "L1501",
+        "name": "Precipitation Methods",
+        "description": "Synthesis through precipitation and crystallization.",
+        "module": "M503"
+      },
+      {
+        "_id": "L1502",
+        "name": "High Temperature Synthesis",
+        "description": "Solid-state reactions at elevated temperatures.",
+        "module": "M503"
+      },
+      {
+        "_id": "L1503",
+        "name": "Sol-Gel Processing",
+        "description": "Solution-based synthesis of inorganic materials.",
+        "module": "M503"
+      }
+    ]
+  },
+  {
+    "_id": "M601",
+    "name": "Thermodynamics",
+    "description": "Fundamental laws of thermodynamics and their chemical applications.",
+    "course": "RS106",
+    "lessons": [
+      {
+        "_id": "L1601",
+        "name": "First Law of Thermodynamics",
+        "description": "Energy conservation and enthalpy in chemical systems.",
+        "module": "M601"
+      },
+      {
+        "_id": "L1602",
+        "name": "Second Law and Entropy",
+        "description": "Entropy changes and spontaneity of chemical processes.",
+        "module": "M601"
+      },
+      {
+        "_id": "L1603",
+        "name": "Free Energy and Equilibrium",
+        "description": "Gibbs free energy and chemical equilibrium.",
+        "module": "M601"
+      }
+    ]
+  },
+  {
+    "_id": "M602",
+    "name": "Chemical Kinetics",
+    "description": "Study of reaction rates and mechanisms.",
+    "course": "RS106",
+    "lessons": [
+      {
+        "_id": "L1701",
+        "name": "Rate Laws",
+        "description": "Determining rate laws from experimental data.",
+        "module": "M602"
+      },
+      {
+        "_id": "L1702",
+        "name": "Reaction Mechanisms",
+        "description": "Elementary steps and reaction pathways.",
+        "module": "M602"
+      },
+      {
+        "_id": "L1703",
+        "name": "Catalysis",
+        "description": "Homogeneous and heterogeneous catalysis mechanisms.",
+        "module": "M602"
+      }
+    ]
+  },
+  {
+    "_id": "M603",
+    "name": "Quantum Mechanics and Spectroscopy",
+    "description": "Quantum mechanical principles applied to molecular systems.",
+    "course": "RS106",
+    "lessons": [
+      {
+        "_id": "L1801",
+        "name": "Wave-Particle Duality",
+        "description": "Quantum mechanical description of matter and energy.",
+        "module": "M603"
+      },
+      {
+        "_id": "L1802",
+        "name": "Molecular Orbitals",
+        "description": "Quantum mechanical treatment of chemical bonding.",
+        "module": "M603"
+      },
+      {
+        "_id": "L1803",
+        "name": "Spectroscopic Transitions",
+        "description": "Quantum theory of electronic and vibrational spectroscopy.",
+        "module": "M603"
+      }
+    ]
+  },
+  {
+    "_id": "M701",
+    "name": "Elvish Language Fundamentals",
+    "description": "Introduction to Sindarin and Quenya grammar and syntax.",
+    "course": "RS107",
+    "lessons": [
+      {
+        "_id": "L1901",
+        "name": "Sindarin Basics",
+        "description": "Basic grammar and vocabulary of Sindarin Elvish.",
+        "module": "M701"
+      },
+      {
+        "_id": "L1902",
+        "name": "Quenya Structure",
+        "description": "High Elvish grammar and linguistic features.",
+        "module": "M701"
+      },
+      {
+        "_id": "L1903",
+        "name": "Comparative Elvish",
+        "description": "Comparing Sindarin and Quenya linguistic evolution.",
+        "module": "M701"
+      }
+    ]
+  },
+  {
+    "_id": "M702",
+    "name": "Dwarvish and Ancient Scripts",
+    "description": "Study of Khuzdul language and runic writing systems.",
+    "course": "RS107",
+    "lessons": [
+      {
+        "_id": "L2001",
+        "name": "Khuzdul Grammar",
+        "description": "Structure and syntax of the Dwarvish language.",
+        "module": "M702"
+      },
+      {
+        "_id": "L2002",
+        "name": "Runic Scripts",
+        "description": "Cirth and other runic writing systems of Middle-earth.",
+        "module": "M702"
+      },
+      {
+        "_id": "L2003",
+        "name": "Ancient Inscriptions",
+        "description": "Reading and interpreting ancient Middle-earth texts.",
+        "module": "M702"
+      }
+    ]
+  },
+  {
+    "_id": "M703",
+    "name": "Dark Tongues and Regional Dialects",
+    "description": "Study of the Black Speech and regional language variations.",
+    "course": "RS107",
+    "lessons": [
+      {
+        "_id": "L2101",
+        "name": "Black Speech of Mordor",
+        "description": "Grammar and vocabulary of the Dark Lord's tongue.",
+        "module": "M703"
+      },
+      {
+        "_id": "L2102",
+        "name": "Rohirric and Westron",
+        "description": "Common tongues and their regional variations.",
+        "module": "M703"
+      },
+      {
+        "_id": "L2103",
+        "name": "Orcish Dialects",
+        "description": "Various Orcish languages and their origins.",
+        "module": "M703"
+      }
+    ]
+  },
+  {
+    "_id": "M801",
+    "name": "Historical Alliances",
+    "description": "Study of major alliances and treaties in Middle-earth history.",
+    "course": "RS108",
+    "lessons": [
+      {
+        "_id": "L2201",
+        "name": "The Last Alliance",
+        "description": "Analysis of the alliance between Elves and Men against Sauron.",
+        "module": "M801"
+      },
+      {
+        "_id": "L2202",
+        "name": "The Fellowship Model",
+        "description": "Inter-species cooperation during the War of the Ring.",
+        "module": "M801"
+      },
+      {
+        "_id": "L2203",
+        "name": "Dwarf-Elf Relations",
+        "description": "Historical tensions and reconciliation between Dwarves and Elves.",
+        "module": "M801"
+      }
+    ]
+  },
+  {
+    "_id": "M802",
+    "name": "Leadership and Governance",
+    "description": "Comparative study of leadership styles across Middle-earth races.",
+    "course": "RS108",
+    "lessons": [
+      {
+        "_id": "L2301",
+        "name": "Monarchy vs. Council Rule",
+        "description": "Comparing Gondorian kings with Elven councils.",
+        "module": "M802"
+      },
+      {
+        "_id": "L2302",
+        "name": "Wizard Authority",
+        "description": "The role of Istari in Middle-earth governance.",
+        "module": "M802"
+      },
+      {
+        "_id": "L2303",
+        "name": "Democratic Traditions",
+        "description": "Hobbit and Dwarvish approaches to community decision-making.",
+        "module": "M802"
+      }
+    ]
+  },
+  {
+    "_id": "M803",
+    "name": "Conflict Resolution",
+    "description": "Methods of resolving disputes between different races and kingdoms.",
+    "course": "RS108",
+    "lessons": [
+      {
+        "_id": "L2401",
+        "name": "Diplomatic Protocols",
+        "description": "Formal diplomatic practices in Middle-earth.",
+        "module": "M803"
+      },
+      {
+        "_id": "L2402",
+        "name": "Mediation Techniques",
+        "description": "Role of neutral parties in resolving conflicts.",
+        "module": "M803"
+      },
+      {
+        "_id": "L2403",
+        "name": "Post-War Reconstruction",
+        "description": "Rebuilding relationships after major conflicts.",
+        "module": "M803"
+      }
+    ]
+  },
+  {
+    "_id": "M901",
+    "name": "Node.js Fundamentals",
+    "description": "Core concepts of Node.js runtime and server-side JavaScript.",
+    "course": "1101",
+    "lessons": [
+      {
+        "_id": "L2501",
+        "name": "Event Loop and Asynchronous Programming",
+        "description": "Understanding Node.js event-driven architecture.",
+        "module": "M901"
+      },
+      {
+        "_id": "L2502",
+        "name": "File System and Modules",
+        "description": "Working with the filesystem and CommonJS modules.",
+        "module": "M901"
+      },
+      {
+        "_id": "L2503",
+        "name": "NPM and Package Management",
+        "description": "Managing dependencies with npm and package.json.",
+        "module": "M901"
+      }
+    ]
+  },
+  {
+    "_id": "M902",
+    "name": "Express.js Framework",
+    "description": "Building web applications and APIs with Express.js.",
+    "course": "1101",
+    "lessons": [
+      {
+        "_id": "L2601",
+        "name": "Routing and Middleware",
+        "description": "Creating routes and implementing middleware functions.",
+        "module": "M902"
+      },
+      {
+        "_id": "L2602",
+        "name": "Request and Response Handling",
+        "description": "Processing HTTP requests and sending responses.",
+        "module": "M902"
+      },
+      {
+        "_id": "L2603",
+        "name": "Error Handling and Security",
+        "description": "Implementing error handling and security best practices.",
+        "module": "M902"
+      }
+    ]
+  },
+  {
+    "_id": "M903",
+    "name": "REST API Development",
+    "description": "Designing and implementing RESTful web services.",
+    "course": "1101",
+    "lessons": [
+      {
+        "_id": "L2701",
+        "name": "REST Principles",
+        "description": "Understanding RESTful architecture and HTTP methods.",
+        "module": "M903"
+      },
+      {
+        "_id": "L2702",
+        "name": "API Documentation",
+        "description": "Creating comprehensive API documentation.",
+        "module": "M903"
+      },
+      {
+        "_id": "L2703",
+        "name": "Testing and Deployment",
+        "description": "Testing APIs and deploying to production.",
+        "module": "M903"
+      }
+    ]
+  },
+  {
+    "_id": "M1001",
+    "name": "Next.js Basics",
+    "description": "Introduction to Next.js framework and its core features.",
+    "course": "1102",
+    "lessons": [
+      {
+        "_id": "L2801",
+        "name": "Pages and Routing",
+        "description": "File-based routing and dynamic routes in Next.js.",
+        "module": "M1001"
+      },
+      {
+        "_id": "L2802",
+        "name": "Static Generation vs Server Rendering",
+        "description": "Understanding SSG, SSR, and when to use each.",
+        "module": "M1001"
+      },
+      {
+        "_id": "L2803",
+        "name": "API Routes",
+        "description": "Creating backend API endpoints within Next.js.",
+        "module": "M1001"
+      }
+    ]
+  },
+  {
+    "_id": "M1002",
+    "name": "Performance Optimization",
+    "description": "Optimizing Next.js applications for production performance.",
+    "course": "1102",
+    "lessons": [
+      {
+        "_id": "L2901",
+        "name": "Image Optimization",
+        "description": "Using Next.js Image component for optimal performance.",
+        "module": "M1002"
+      },
+      {
+        "_id": "L2902",
+        "name": "Code Splitting and Lazy Loading",
+        "description": "Implementing dynamic imports and code splitting.",
+        "module": "M1002"
+      },
+      {
+        "_id": "L2903",
+        "name": "Caching Strategies",
+        "description": "Implementing effective caching for better performance.",
+        "module": "M1002"
+      }
+    ]
+  },
+  {
+    "_id": "M1003",
+    "name": "Full-Stack Development",
+    "description": "Building complete applications with Next.js and external services.",
+    "course": "1102",
+    "lessons": [
+      {
+        "_id": "L3001",
+        "name": "Database Integration",
+        "description": "Connecting Next.js applications to databases.",
+        "module": "M1003"
+      },
+      {
+        "_id": "L3002",
+        "name": "Authentication and Authorization",
+        "description": "Implementing user authentication in Next.js apps.",
+        "module": "M1003"
+      },
+      {
+        "_id": "L3003",
+        "name": "Deployment and DevOps",
+        "description": "Deploying Next.js applications to various platforms.",
+        "module": "M1003"
+      }
+    ]
+  },
+  {
+    "_id": "M1101",
+    "name": "JavaScript Fundamentals",
+    "description": "Core JavaScript language features and syntax.",
+    "course": "1103",
+    "lessons": [
+      {
+        "_id": "L3101",
+        "name": "Variables and Data Types",
+        "description": "Understanding JavaScript variables, primitives, and objects.",
+        "module": "M1101"
+      },
+      {
+        "_id": "L3102",
+        "name": "Functions and Scope",
+        "description": "Function declarations, expressions, and closure concepts.",
+        "module": "M1101"
+      },
+      {
+        "_id": "L3103",
+        "name": "Control Flow and Loops",
+        "description": "Conditional statements and iteration in JavaScript.",
+        "module": "M1101"
+      }
+    ]
+  },
+  {
+    "_id": "M1102",
+    "name": "DOM Manipulation",
+    "description": "Interacting with the Document Object Model using JavaScript.",
+    "course": "1103",
+    "lessons": [
+      {
+        "_id": "L3201",
+        "name": "Selecting and Modifying Elements",
+        "description": "Finding and changing DOM elements dynamically.",
+        "module": "M1102"
+      },
+      {
+        "_id": "L3202",
+        "name": "Event Handling",
+        "description": "Responding to user interactions and browser events.",
+        "module": "M1102"
+      },
+      {
+        "_id": "L3203",
+        "name": "Creating Dynamic Content",
+        "description": "Generating and updating HTML content with JavaScript.",
+        "module": "M1102"
+      }
+    ]
+  },
+  {
+    "_id": "M1103",
+    "name": "Asynchronous JavaScript",
+    "description": "Working with promises, async/await, and asynchronous operations.",
+    "course": "1103",
+    "lessons": [
+      {
+        "_id": "L3301",
+        "name": "Promises and Promise Chains",
+        "description": "Understanding and using JavaScript promises.",
+        "module": "M1103"
+      },
+      {
+        "_id": "L3302",
+        "name": "Async/Await Syntax",
+        "description": "Modern asynchronous programming with async/await.",
+        "module": "M1103"
+      },
+      {
+        "_id": "L3303",
+        "name": "Fetch API and AJAX",
+        "description": "Making HTTP requests and handling responses.",
+        "module": "M1103"
+      }
+    ]
+  },
+  {
+    "_id": "M1201",
+    "name": "CSS Fundamentals",
+    "description": "Core CSS concepts, selectors, and styling techniques.",
+    "course": "1104",
+    "lessons": [
+      {
+        "_id": "L3401",
+        "name": "Selectors and Specificity",
+        "description": "CSS selectors, cascade, and specificity rules.",
+        "module": "M1201"
+      },
+      {
+        "_id": "L3402",
+        "name": "Box Model and Layout",
+        "description": "Understanding the CSS box model and layout properties.",
+        "module": "M1201"
+      },
+      {
+        "_id": "L3403",
+        "name": "Typography and Colors",
+        "description": "Styling text and working with colors in CSS.",
+        "module": "M1201"
+      }
+    ]
+  },
+  {
+    "_id": "M1202",
+    "name": "Responsive Design",
+    "description": "Creating layouts that work across different screen sizes.",
+    "course": "1104",
+    "lessons": [
+      {
+        "_id": "L3501",
+        "name": "Media Queries",
+        "description": "Using media queries for responsive breakpoints.",
+        "module": "M1202"
+      },
+      {
+        "_id": "L3502",
+        "name": "Flexbox Layout",
+        "description": "Creating flexible layouts with CSS Flexbox.",
+        "module": "M1202"
+      },
+      {
+        "_id": "L3503",
+        "name": "CSS Grid",
+        "description": "Advanced layouts using CSS Grid system.",
+        "module": "M1202"
+      }
+    ]
+  },
+  {
+    "_id": "M1203",
+    "name": "Tailwind CSS",
+    "description": "Utility-first CSS framework for rapid UI development.",
+    "course": "1104",
+    "lessons": [
+      {
+        "_id": "L3601",
+        "name": "Utility Classes",
+        "description": "Understanding and using Tailwind utility classes.",
+        "module": "M1203"
+      },
+      {
+        "_id": "L3602",
+        "name": "Responsive Utilities",
+        "description": "Building responsive designs with Tailwind breakpoints.",
+        "module": "M1203"
+      },
+      {
+        "_id": "L3603",
+        "name": "Customization and Configuration",
+        "description": "Customizing Tailwind theme and configuration.",
+        "module": "M1203"
+      }
+    ]
+  },
+  {
+    "_id": "M1301",
+    "name": "MongoDB Basics",
+    "description": "Introduction to NoSQL databases and MongoDB fundamentals.",
+    "course": "1105",
+    "lessons": [
+      {
+        "_id": "L3701",
+        "name": "Document Structure",
+        "description": "Understanding BSON documents and collections.",
+        "module": "M1301"
+      },
+      {
+        "_id": "L3702",
+        "name": "CRUD Operations",
+        "description": "Create, read, update, and delete operations in MongoDB.",
+        "module": "M1301"
+      },
+      {
+        "_id": "L3703",
+        "name": "Data Modeling",
+        "description": "Designing effective document schemas for MongoDB.",
+        "module": "M1301"
+      }
+    ]
+  },
+  {
+    "_id": "M1302",
+    "name": "Advanced Queries",
+    "description": "Complex querying and aggregation in MongoDB.",
+    "course": "1105",
+    "lessons": [
+      {
+        "_id": "L3801",
+        "name": "Query Operators",
+        "description": "Using comparison, logical, and element query operators.",
+        "module": "M1302"
+      },
+      {
+        "_id": "L3802",
+        "name": "Aggregation Pipeline",
+        "description": "Building complex data processing pipelines.",
+        "module": "M1302"
+      },
+      {
+        "_id": "L3803",
+        "name": "Indexing and Performance",
+        "description": "Optimizing queries with proper indexing strategies.",
+        "module": "M1302"
+      }
+    ]
+  },
+  {
+    "_id": "M1303",
+    "name": "MongoDB with Node.js",
+    "description": "Integrating MongoDB with Node.js applications.",
+    "course": "1105",
+    "lessons": [
+      {
+        "_id": "L3901",
+        "name": "MongoDB Driver",
+        "description": "Using the native MongoDB driver for Node.js.",
+        "module": "M1303"
+      },
+      {
+        "_id": "L3902",
+        "name": "Mongoose ODM",
+        "description": "Object Document Mapping with Mongoose library.",
+        "module": "M1303"
+      },
+      {
+        "_id": "L3903",
+        "name": "Connection Management",
+        "description": "Managing database connections and error handling.",
+        "module": "M1303"
+      }
+    ]
+  },
+  {
+    "_id": "M1401",
+    "name": "Edge Computing Fundamentals",
+    "description": "Understanding edge computing concepts and architecture.",
+    "course": "1106",
+    "lessons": [
+      {
+        "_id": "L4001",
+        "name": "Edge vs Cloud Computing",
+        "description": "Comparing edge computing with traditional cloud architecture.",
+        "module": "M1401"
+      },
+      {
+        "_id": "L4002",
+        "name": "CDN and Edge Networks",
+        "description": "Content delivery networks and edge infrastructure.",
+        "module": "M1401"
+      },
+      {
+        "_id": "L4003",
+        "name": "Edge Use Cases",
+        "description": "Real-world applications of edge computing in web development.",
+        "module": "M1401"
+      }
+    ]
+  },
+  {
+    "_id": "M1402",
+    "name": "Serverless at the Edge",
+    "description": "Implementing serverless functions on edge networks.",
+    "course": "1106",
+    "lessons": [
+      {
+        "_id": "L4101",
+        "name": "Edge Functions",
+        "description": "Writing and deploying serverless functions at the edge.",
+        "module": "M1402"
+      },
+      {
+        "_id": "L4102",
+        "name": "Edge Runtime APIs",
+        "description": "Using edge-specific APIs and runtime limitations.",
+        "module": "M1402"
+      },
+      {
+        "_id": "L4103",
+        "name": "Performance Optimization",
+        "description": "Optimizing applications for edge deployment.",
+        "module": "M1402"
+      }
+    ]
+  },
+  {
+    "_id": "M1403",
+    "name": "Edge Development Platforms",
+    "description": "Working with major edge computing platforms and services.",
+    "course": "1106",
+    "lessons": [
+      {
+        "_id": "L4201",
+        "name": "Vercel Edge Functions",
+        "description": "Developing with Vercel's edge runtime and deployment.",
+        "module": "M1403"
+      },
+      {
+        "_id": "L4202",
+        "name": "Cloudflare Workers",
+        "description": "Building applications with Cloudflare Workers platform.",
+        "module": "M1403"
+      },
+      {
+        "_id": "L4203",
+        "name": "AWS Lambda@Edge",
+        "description": "Using AWS Lambda functions at CloudFront edge locations.",
+        "module": "M1403"
+      }
+    ]
+  }
+]

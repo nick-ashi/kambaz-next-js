@@ -1,7 +1,28 @@
 "use client";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
+import Link from "next/link";
 
-export default function AssignmentEditor() {
+export default function AssignmentEditor({ assignment, courseId }: any) {
+  
+  // make the date strs to YYYY-MM-DD fmt for date inputs
+  const formatDateForInput = (dateString: string) => {
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    
+    const [datePart] = dateString.split(' at ');
+    const parts = datePart.split(' ');
+    const month = monthNames.indexOf(parts[0]) + 1;
+    const day = parseInt(parts[1]);
+    // i'll probably have to change this later 
+    // idk how to do this well rn tbh :(
+    const year = 2025;
+    
+    return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  
+  };
+
   return (
     <div id="wd-assignments-editor" className="container-fluid">
       <Form>
@@ -10,7 +31,7 @@ export default function AssignmentEditor() {
           <Form.Control 
             type="text"
             id="wd-name" 
-            defaultValue="A1 - ENV + HTML" 
+            defaultValue={assignment.title} 
           />
         </Form.Group>
 
@@ -20,7 +41,7 @@ export default function AssignmentEditor() {
             as="textarea"
             rows={5}
             id="wd-description"
-            defaultValue="The assignment is available online Submit a link to the landing page of"
+            defaultValue={assignment.description}
           />
         </Form.Group>
 
@@ -30,7 +51,7 @@ export default function AssignmentEditor() {
             <Form.Control 
               type="number"
               id="wd-points" 
-              defaultValue={100} 
+              defaultValue={assignment.points} 
             />
           </Form.Group>
         </Row>
@@ -118,6 +139,7 @@ export default function AssignmentEditor() {
                 <Form.Control 
                   type="date"
                   id="wd-due-date"
+                  defaultValue={formatDateForInput(assignment.dueDate)}
                 />
               </Form.Group>
 
@@ -127,6 +149,7 @@ export default function AssignmentEditor() {
                   <Form.Control 
                     type="date"
                     id="wd-available-from"
+                    defaultValue={formatDateForInput(assignment.availableFrom)}
                   />
                 </Form.Group>
                 <Form.Group as={Col} md={6} className="mb-3">
@@ -134,6 +157,7 @@ export default function AssignmentEditor() {
                   <Form.Control 
                     type="date"
                     id="wd-available-until"
+                    defaultValue={formatDateForInput(assignment.availableUntil)}
                   />
                 </Form.Group>
               </Row>
@@ -144,12 +168,16 @@ export default function AssignmentEditor() {
         <hr />
         
         <div className="d-flex justify-content-end gap-2">
-          <Button variant="secondary" id="cancel">
-            Cancel
-          </Button>
-          <Button variant="danger" id="save">
-            Save
-          </Button>
+          <Link href={`/Courses/${courseId}/Assignments`}>
+            <Button variant="secondary" id="cancel">
+              Cancel
+            </Button>
+          </Link>
+          <Link href={`/Courses/${courseId}/Assignments`}>
+            <Button variant="danger" id="save">
+              Save
+            </Button>
+          </Link>
         </div>
       </Form>
     </div>

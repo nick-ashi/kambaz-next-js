@@ -1,0 +1,422 @@
+[
+  {
+    "_id": "A101",
+    "title": "A1 - Rocket Engine Fundamentals",
+    "course": "RS101",
+    "description": "Introduction to basic rocket engine principles and design",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A102",
+    "title": "A2 - Combustion Analysis Project",
+    "course": "RS101",
+    "description": "Detailed analysis of combustion processes in rocket engines",
+    "points": 150,
+    "dueDate": "October 15 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 15 at 23:59"
+  },
+  {
+    "_id": "A103",
+    "title": "A3 - Nozzle Design Project",
+    "course": "RS101",
+    "description": "Design and optimize a rocket nozzle for specific performance requirements",
+    "points": 200,
+    "dueDate": "November 1 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "November 1 at 23:59"
+  },
+  {
+    "_id": "A201",
+    "title": "A1 - Aerodynamics Fundamentals",
+    "course": "RS102",
+    "description": "Basic principles of fluid dynamics and aerodynamic flow",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A202",
+    "title": "A2 - Flow Analysis Lab",
+    "course": "RS102",
+    "description": "Laboratory analysis of subsonic and supersonic flow patterns",
+    "points": 125,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A203",
+    "title": "A3 - Aerodynamic Heating Study",
+    "course": "RS102",
+    "description": "Study of thermal effects in high-speed aerodynamic flow",
+    "points": 150,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A301",
+    "title": "A1 - Spacecraft Structure Design",
+    "course": "RS103",
+    "description": "Design structural components for spacecraft applications",
+    "points": 150,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A302",
+    "title": "A2 - Orbital Mechanics Calculations",
+    "course": "RS103",
+    "description": "Calculate orbital trajectories and mission parameters",
+    "points": 175,
+    "dueDate": "October 15 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 15 at 23:59"
+  },
+  {
+    "_id": "A303",
+    "title": "A3 - Systems Engineering Project",
+    "course": "RS103",
+    "description": "Comprehensive spacecraft systems integration project",
+    "points": 200,
+    "dueDate": "November 5 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "November 5 at 23:59"
+  },
+  {
+    "_id": "A401",
+    "title": "A1 - Organic Synthesis Lab",
+    "course": "RS104",
+    "description": "Laboratory synthesis of organic compounds",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A402",
+    "title": "A2 - Reaction Mechanisms",
+    "course": "RS104",
+    "description": "Analysis of organic reaction mechanisms and pathways",
+    "points": 125,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A403",
+    "title": "A3 - Spectroscopy Analysis",
+    "course": "RS104",
+    "description": "Structure determination using NMR and IR spectroscopy",
+    "points": 150,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A501",
+    "title": "A1 - Coordination Chemistry",
+    "course": "RS105",
+    "description": "Synthesis and analysis of metal coordination complexes",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A502",
+    "title": "A2 - Solid State Materials",
+    "course": "RS105",
+    "description": "Investigation of inorganic solid materials and their properties",
+    "points": 125,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A503",
+    "title": "A3 - Inorganic Synthesis Project",
+    "course": "RS105",
+    "description": "Design and execute synthesis of novel inorganic compounds",
+    "points": 175,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A601",
+    "title": "A1 - Thermodynamics Problem Set",
+    "course": "RS106",
+    "description": "Application of thermodynamic principles to chemical systems",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A602",
+    "title": "A2 - Kinetics Laboratory",
+    "course": "RS106",
+    "description": "Experimental determination of reaction rates and mechanisms",
+    "points": 150,
+    "dueDate": "October 15 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 15 at 23:59"
+  },
+  {
+    "_id": "A603",
+    "title": "A3 - Quantum Chemistry Project",
+    "course": "RS106",
+    "description": "Computational quantum chemistry calculations and analysis",
+    "points": 200,
+    "dueDate": "November 1 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "November 1 at 23:59"
+  },
+  {
+    "_id": "A701",
+    "title": "A1 - Elvish Translation Project",
+    "course": "RS107",
+    "description": "Translate ancient Elvish texts from Sindarin to Common Speech",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A702",
+    "title": "A2 - Runic Script Analysis",
+    "course": "RS107",
+    "description": "Decode and interpret ancient Dwarvish runes and inscriptions",
+    "points": 125,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A703",
+    "title": "A3 - Linguistic Evolution Study",
+    "course": "RS107",
+    "description": "Research the evolution of Middle-earth languages over time",
+    "points": 150,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A801",
+    "title": "A1 - Alliance Case Study",
+    "course": "RS108",
+    "description": "Analyze the formation and success of the Last Alliance",
+    "points": 125,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A802",
+    "title": "A2 - Leadership Comparison",
+    "course": "RS108",
+    "description": "Compare leadership styles across different Middle-earth races",
+    "points": 150,
+    "dueDate": "October 15 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 15 at 23:59"
+  },
+  {
+    "_id": "A803",
+    "title": "A3 - Diplomatic Solution Design",
+    "course": "RS108",
+    "description": "Design a diplomatic solution for a fictional inter-species conflict",
+    "points": 175,
+    "dueDate": "November 1 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "November 1 at 23:59"
+  },
+  {
+    "_id": "A901",
+    "title": "A1 - ENV + Node.js Setup",
+    "course": "1101",
+    "description": "Set up development environment and create basic Node.js server",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A902",
+    "title": "A2 - Express API Development",
+    "course": "1101",
+    "description": "Build a RESTful API using Express.js framework",
+    "points": 150,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A903",
+    "title": "A3 - Full Stack Application",
+    "course": "1101",
+    "description": "Create a complete web application with Node.js backend",
+    "points": 200,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A1001",
+    "title": "A1 - Next.js Basics",
+    "course": "1102",
+    "description": "Create your first Next.js application with routing",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A1002",
+    "title": "A2 - SSR and SSG Implementation",
+    "course": "1102",
+    "description": "Implement server-side rendering and static site generation",
+    "points": 150,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A1003",
+    "title": "A3 - Full Stack Next.js App",
+    "course": "1102",
+    "description": "Build a complete full-stack application with Next.js",
+    "points": 200,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A1101",
+    "title": "A1 - ENV + HTML",
+    "course": "1103",
+    "description": "Set up development environment and create interactive HTML pages",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A1102",
+    "title": "A2 - DOM Manipulation",
+    "course": "1103",
+    "description": "Create dynamic web pages using JavaScript DOM manipulation",
+    "points": 125,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A1103",
+    "title": "A3 - Async JavaScript",
+    "course": "1103",
+    "description": "Build applications using async/await and fetch API",
+    "points": 150,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A1201",
+    "title": "A1 - CSS Fundamentals",
+    "course": "1104",
+    "description": "Create responsive layouts using CSS Grid and Flexbox",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A1202",
+    "title": "A2 - Responsive Design",
+    "course": "1104",
+    "description": "Build mobile-first responsive web interfaces",
+    "points": 125,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A1203",
+    "title": "A3 - Tailwind CSS Project",
+    "course": "1104",
+    "description": "Create a complete UI using Tailwind CSS utilities",
+    "points": 150,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A1301",
+    "title": "A1 - MongoDB Basics",
+    "course": "1105",
+    "description": "Set up MongoDB and perform basic CRUD operations",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A1302",
+    "title": "A2 - Aggregation Pipeline",
+    "course": "1105",
+    "description": "Build complex data processing pipelines in MongoDB",
+    "points": 150,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A1303",
+    "title": "A3 - MongoDB with Node.js",
+    "course": "1105",
+    "description": "Integrate MongoDB with Node.js applications using Mongoose",
+    "points": 175,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  },
+  {
+    "_id": "A1401",
+    "title": "A1 - Edge Computing Fundamentals",
+    "course": "1106",
+    "description": "Deploy your first serverless function at the edge",
+    "points": 100,
+    "dueDate": "September 29 at 23:59",
+    "availableFrom": "September 7 at 00:00",
+    "availableUntil": "September 29 at 23:59"
+  },
+  {
+    "_id": "A1402",
+    "title": "A2 - Edge Performance Optimization",
+    "course": "1106",
+    "description": "Optimize applications for edge deployment and performance",
+    "points": 150,
+    "dueDate": "October 13 at 23:59",
+    "availableFrom": "September 14 at 00:00",
+    "availableUntil": "October 13 at 23:59"
+  },
+  {
+    "_id": "A1403",
+    "title": "A3 - Multi-Platform Edge Deployment",
+    "course": "1106",
+    "description": "Deploy applications across multiple edge computing platforms",
+    "points": 200,
+    "dueDate": "October 30 at 23:59",
+    "availableFrom": "September 21 at 00:00",
+    "availableUntil": "October 30 at 23:59"
+  }
+]
