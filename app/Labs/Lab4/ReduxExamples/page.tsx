@@ -1,16 +1,21 @@
+"use client";
+import store from "../store";
 import AddRedux from "./AddRedux/page";
 import CounterRedux from "./CounterRedux/page";
 import HelloRedux from "./HelloRedux/page";
 import TodoList from "./todos/TodoList";
+import { Provider } from "react-redux";
 
 export default function ReduxExamples() {
   return(
-    <div>
-      <h2>Redux Examples</h2>
-      <HelloRedux />
-      <CounterRedux />
-      <AddRedux />
-      <TodoList />
-    </div>
+    <Provider store={store}>
+      <div>
+        <h2>Redux Examples</h2>
+        <HelloRedux />
+        <CounterRedux />
+        <AddRedux />
+        <TodoList />
+      </div>
+    </Provider>
   );
 };
