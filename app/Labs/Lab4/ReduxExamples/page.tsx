@@ -1,8 +1,8 @@
 "use client";
 import store from "../store";
-import AddRedux from "./AddRedux/page";
-import CounterRedux from "./CounterRedux/page";
-import HelloRedux from "./HelloRedux/page";
+import AddRedux from "./AddRedux";
+import CounterRedux from "./CounterRedux";
+import HelloRedux from "./HelloRedux";
 import TodoList from "./todos/TodoList";
 import { Provider } from "react-redux";
 
