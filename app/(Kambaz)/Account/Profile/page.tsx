@@ -1,107 +1,93 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Link from "next/link";
-import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
+import { redirect } from "next/dist/client/components/navigation";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentUser } from "../reducer";
+import { Form, FormControl, Button, Card, Container, Row, Col } from "react-bootstrap";
 
 export default function Profile() {
+  const [profile, setProfile] = useState<any>({});
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const fetchProfile = () => {
+    if (!currentUser) return redirect("/Account/Signin");
+    setProfile(currentUser);
+  };
+  const signout = () => {
+    dispatch(setCurrentUser(null));
+    redirect("/Account/Signin");
+  };
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-center">
-        <Col md={8} lg={6}>
-          <Card>
-            <Card.Header>
-              <h3 className="mb-0">Profile</h3>
-            </Card.Header>
-            <Card.Body>
-              <Form>
-                <div className="mb-3">
-                  <Form.Label htmlFor="wd-username">Username</Form.Label>
-                  <Form.Control 
-                    type="text"
-                    id="wd-username"
-                    defaultValue="alice" 
-                    placeholder="Username" 
-                    className="wd-username"
-                  />
-                </div>
-                
-                <div className="mb-3">
-                  <Form.Label htmlFor="wd-password">Password</Form.Label>
-                  <Form.Control 
-                    type="password"
-                    id="wd-password"
-                    defaultValue="123" 
-                    placeholder="Password" 
-                    className="wd-password"
-                  />
-                </div>
-                
-                <Row>
-                  <Col md={6}>
-                    <div className="mb-3">
-                      <Form.Label htmlFor="wd-firstname">First Name</Form.Label>
-                      <Form.Control 
-                        type="text"
-                        id="wd-firstname"
-                        defaultValue="Alice" 
-                        placeholder="First Name"
-                      />
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    <div className="mb-3">
-                      <Form.Label htmlFor="wd-lastname">Last Name</Form.Label>
-                      <Form.Control 
-                        type="text"
-                        id="wd-lastname"
-                        defaultValue="Wonderland" 
-                        placeholder="Last Name"
-                      />
-                    </div>
-                  </Col>
-                </Row>
-                
-                <div className="mb-3">
-                  <Form.Label htmlFor="wd-dob">Date of Birth</Form.Label>
-                  <Form.Control 
-                    type="date"
-                    id="wd-dob"
-                    defaultValue="2000-01-01"
-                  />
-                </div>
-                
-                <div className="mb-3">
-                  <Form.Label htmlFor="wd-email">Email</Form.Label>
-                  <Form.Control 
-                    type="email"
-                    id="wd-email"
-                    defaultValue="alice@wonderland" 
-                    placeholder="Email"
-                  />
-                </div>
-                
-                <div className="mb-4">
-                  <Form.Label htmlFor="wd-role">Role</Form.Label>
-                  <Form.Select id="wd-role" defaultValue="FACULTY">
-                    <option value="USER">User</option>
-                    <option value="ADMIN">Admin</option>
-                    <option value="FACULTY">Faculty</option>
-                    <option value="STUDENT">Student</option>
-                  </Form.Select>
-                </div>
-                
-                <div className="d-grid gap-2">
-                  <Link 
-                    href="/Account/Signin" 
-                    className="btn btn-danger btn-lg"
-                  >
-                    Sign out
-                  </Link>
-                </div>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <div className="wd-profile-screen">
+      <h3>Profile</h3>
+      {profile && (
+        <div>
+          <FormControl
+            id="wd-username"
+            className="mb-2"
+            defaultValue={profile.username}
+            onChange={(e) =>
+              setProfile({ ...profile, username: e.target.value })
+            }
+          />
+          <FormControl
+            id="wd-password"
+            className="mb-2"
+            defaultValue={profile.password}
+            onChange={(e) =>
+              setProfile({ ...profile, password: e.target.value })
+            }
+          />
+          <FormControl
+            id="wd-firstname"
+            className="mb-2"
+            defaultValue={profile.firstName}
+            onChange={(e) =>
+              setProfile({ ...profile, firstName: e.target.value })
+            }
+          />
+          <FormControl
+            id="wd-lastname"
+            className="mb-2"
+            defaultValue={profile.lastName}
+            onChange={(e) =>
+              setProfile({ ...profile, lastName: e.target.value })
+            }
+          />
+          <FormControl
+            id="wd-dob"
+            className="mb-2"
+            type="date"
+            defaultValue={profile.dob}
+            onChange={(e) => setProfile({ ...profile, dob: e.target.value })}
+          />
+          <FormControl
+            id="wd-email"
+            className="mb-2"
+            defaultValue={profile.email}
+            onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+          />
+          <select
+            className="form-control mb-2"
+            id="wd-role"
+            onChange={(e) => setProfile({ ...profile, role: e.target.value })}
+          >
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+            <option value="FACULTY">Faculty</option>{" "}
+            <option value="STUDENT">Student</option>
+          </select>
+          <Button onClick={signout} className="w-100 mb-2" id="wd-signout-btn">
+            Sign out
+          </Button>
+        </div>
+      )}
+    </div>
   );
 }

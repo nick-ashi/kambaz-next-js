@@ -4,16 +4,25 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ListGroup, ListGroupItem, Button, Form } from "react-bootstrap";
 import { BsGripVertical, BsSearch } from "react-icons/bs";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
-import * as db from "../../../Database";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteAssignment } from "./reducer";
 
 export default function Assignments() {
   const { cid } = useParams();
   const courseId = Array.isArray(cid) ? cid[0] : cid;
-  
+
+  // Stuff for state management (selectors, dispatcher initialization)
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const dispatch = useDispatch();
+
+  // Check if user is faculty or admin (can edit/delete)
+  const isFaculty = currentUser?.role === "FACULTY" || currentUser?.role === "ADMIN";
+
   // filter assignments for current course
-  const courseAssignments = db.assignments.filter(
+  const courseAssignments = assignments.filter(
     (assignment: any) => assignment.course === courseId
   );
 
@@ -30,12 +39,19 @@ export default function Assignments() {
           />
         </div>
         <div>
-          <Button variant="secondary" className="me-2" id="wd-add-assignment-group">
-            <FaPlus className="me-1" /> Group
-          </Button>
-          <Button variant="danger" id="wd-add-assignment">
-            <FaPlus className="me-1" /> Assignment
-          </Button>
+          {/* Only want to show add buttons if faculty or admin */}
+          {isFaculty && (
+            <>
+              <Button variant="secondary" className="me-2" id="wd-add-assignment-group">
+                <FaPlus className="me-1" /> Group
+              </Button>
+              <Link href={`/Courses/${courseId}/Assignments/new`}>
+                <Button variant="danger" id="wd-add-assignment">
+                  <FaPlus className="me-1" /> Assignment
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
 
@@ -51,6 +67,7 @@ export default function Assignments() {
             </div>
           </div>
           <ListGroup className="wd-lessons rounded-0">
+            {/* Rendering the course assignments but now with STATE*/}
             {courseAssignments.map((assignment: any) => (
               <ListGroupItem 
                 key={assignment._id}
@@ -61,8 +78,8 @@ export default function Assignments() {
                   <BsGripVertical className="me-3" />
                   <FiEdit className="me-3 text-success" />
                   <div>
-                    <Link 
-                      href={`/Courses/${courseId}/Assignments/${assignment._id}`} 
+                    <Link
+                      href={`/Courses/${courseId}/Assignments/${assignment._id}`}
                       className="wd-assignment-link text-decoration-none fw-bold"
                     >
                       {assignment.title}
@@ -72,6 +89,22 @@ export default function Assignments() {
                     </div>
                   </div>
                 </div>
+                {/* Only showing the button if user is faculty */}
+                {isFaculty && (
+                  <div className="d-flex align-items-center">
+                    <Button
+                      variant="outline-danger"
+                      size="sm"
+                      onClick={() => {
+                        if (window.confirm("Are you SURE you want to remove this assignment?")) {
+                          dispatch(deleteAssignment(assignment._id));
+                        }
+                      }}
+                    >
+                      <FaTrash />
+                    </Button>
+                  </div>
+                )}
               </ListGroupItem>
             ))}
           </ListGroup>

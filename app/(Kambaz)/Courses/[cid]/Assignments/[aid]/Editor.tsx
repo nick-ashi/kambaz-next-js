@@ -1,10 +1,61 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import { addAssignment, updateAssignment } from "../reducer";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function AssignmentEditor({ assignment, courseId }: any) {
-  
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const isNewAssignment = assignment === null || assignment === undefined;
+
+  // Check if user is faculty or admin (can edit)
+  const isFaculty = currentUser?.role === "FACULTY" || currentUser?.role === "ADMIN";
+
+  // If not faculty and trying to create new assignment, redirect back
+  if (!isFaculty && isNewAssignment) {
+    router.push(`/Courses/${courseId}/Assignments`);
+    return null;
+  }
+
+  // Form state
+  const [formData, setFormData] = useState({
+    title: assignment?.title || "New Assignment",
+    description: assignment?.description || "",
+    points: assignment?.points || 100,
+    dueDate: assignment?.dueDate || new Date().toISOString().split('T')[0],
+    availableFrom: assignment?.availableFrom || new Date().toISOString().split('T')[0],
+    availableUntil: assignment?.availableUntil || new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+  });
+
+  const handleInputChange = (field: string, value: any) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSave = () => {
+    if (isNewAssignment) {
+      dispatch(addAssignment({
+        ...formData,
+        course: courseId,
+      }));
+    } else {
+      dispatch(updateAssignment({
+        ...assignment,
+        ...formData,
+      }));
+    }
+    router.push(`/Courses/${courseId}/Assignments`);
+  };
+
+  const handleCancel = () => {
+    router.push(`/Courses/${courseId}/Assignments`);
+  };
+
   // make the date strs to YYYY-MM-DD fmt for date inputs
   const formatDateForInput = (dateString: string) => {
     const monthNames = [
@@ -29,30 +80,36 @@ export default function AssignmentEditor({ assignment, courseId }: any) {
       <Form>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="wd-name">Assignment Name</Form.Label>
-          <Form.Control 
+          <Form.Control
             type="text"
-            id="wd-name" 
-            defaultValue={assignment.title} 
+            id="wd-name"
+            value={formData.title}
+            onChange={(e) => isFaculty && handleInputChange('title', e.target.value)}
+            readOnly={!isFaculty}
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label htmlFor="wd-description">Description</Form.Label>
-          <Form.Control 
+          <Form.Control
             as="textarea"
             rows={5}
             id="wd-description"
-            defaultValue={assignment.description}
+            value={formData.description}
+            onChange={(e) => isFaculty && handleInputChange('description', e.target.value)}
+            readOnly={!isFaculty}
           />
         </Form.Group>
 
         <Row className="mb-3">
           <Form.Group as={Col} md={6}>
             <Form.Label htmlFor="wd-points">Points</Form.Label>
-            <Form.Control 
+            <Form.Control
               type="number"
-              id="wd-points" 
-              defaultValue={assignment.points} 
+              id="wd-points"
+              value={formData.points}
+              onChange={(e) => isFaculty && handleInputChange('points', parseInt(e.target.value))}
+              readOnly={!isFaculty}
             />
           </Form.Group>
         </Row>
@@ -137,28 +194,34 @@ export default function AssignmentEditor({ assignment, courseId }: any) {
 
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="wd-due-date">Due</Form.Label>
-                <Form.Control 
+                <Form.Control
                   type="date"
                   id="wd-due-date"
-                  defaultValue={formatDateForInput(assignment.dueDate)}
+                  value={formData.dueDate}
+                  onChange={(e) => isFaculty && handleInputChange('dueDate', e.target.value)}
+                  readOnly={!isFaculty}
                 />
               </Form.Group>
 
               <Row>
                 <Form.Group as={Col} md={6} className="mb-3">
                   <Form.Label htmlFor="wd-available-from">Available From</Form.Label>
-                  <Form.Control 
+                  <Form.Control
                     type="date"
                     id="wd-available-from"
-                    defaultValue={formatDateForInput(assignment.availableFrom)}
+                    value={formData.availableFrom}
+                    onChange={(e) => isFaculty && handleInputChange('availableFrom', e.target.value)}
+                    readOnly={!isFaculty}
                   />
                 </Form.Group>
                 <Form.Group as={Col} md={6} className="mb-3">
                   <Form.Label htmlFor="wd-available-until">Available Until</Form.Label>
-                  <Form.Control 
+                  <Form.Control
                     type="date"
                     id="wd-available-until"
-                    defaultValue={formatDateForInput(assignment.availableUntil)}
+                    value={formData.availableUntil}
+                    onChange={(e) => isFaculty && handleInputChange('availableUntil', e.target.value)}
+                    readOnly={!isFaculty}
                   />
                 </Form.Group>
               </Row>
@@ -167,18 +230,24 @@ export default function AssignmentEditor({ assignment, courseId }: any) {
         </Form.Group>
 
         <hr />
-        
+
         <div className="d-flex justify-content-end gap-2">
-          <Link href={`/Courses/${courseId}/Assignments`}>
-            <Button variant="secondary" id="cancel">
-              Cancel
+          {/* Only show save/cancel options for faculty user type
+              otherwise just show back button */}
+          {isFaculty ? (
+            <>
+              <Button variant="secondary" id="cancel" onClick={handleCancel}>
+                Cancel
+              </Button>
+              <Button variant="danger" id="save" onClick={handleSave}>
+                Save
+              </Button>
+            </>
+          ) : (
+            <Button variant="secondary" onClick={handleCancel}>
+              Back to Assignments
             </Button>
-          </Link>
-          <Link href={`/Courses/${courseId}/Assignments`}>
-            <Button variant="danger" id="save">
-              Save
-            </Button>
-          </Link>
+          )}
         </div>
       </Form>
     </div>

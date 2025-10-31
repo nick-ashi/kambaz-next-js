@@ -2,15 +2,21 @@
 "use client";
 import { useParams } from "next/navigation";
 import AssignmentEditor from "./Editor";
-import * as db from "../../../../Database";
+import { useSelector } from "react-redux";
 
 export default function AssignmentPage() {
   const { cid, aid } = useParams();
   const courseId = cid;
   const assignmentId = aid;
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
 
-  // Find the assignment in the database
-  const assignment = db.assignments.find(
+  // Handle new assignment 
+  if (assignmentId === "new") {
+    return <AssignmentEditor assignment={null} courseId={courseId} />;
+  }
+
+  // Find assignment
+  const assignment = assignments.find(
     (a: any) => a._id === assignmentId && a.course === courseId
   );
 
