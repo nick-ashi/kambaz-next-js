@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import * as db from "../Database";
+import * as client from "../Courses/client";
 import {
   Card,
   CardBody,
@@ -16,12 +17,13 @@ import {
   FormControl,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewCourse, deleteCourse, updateCourse } from "../Courses/reducer";
+import { addNewCourse, deleteCourse, updateCourse, setCourses } from "../Courses/reducer";
 import { enrollUser, unenrollUser } from "../Database/enrollments/reducer";
 
 export default function Dashboard() {
-  const { courses } = useSelector((state: any) => state.coursesReducer);
-  const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
+  // initialize courses from reducer as empty array when not present
+  const courses = useSelector((state: any) => state.coursesReducer?.courses) || [];
+  // const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const dispatch = useDispatch();
 
@@ -34,24 +36,83 @@ export default function Dashboard() {
     image: "/images/react.jpg",
     description: "New Description",
   });
-
   const [showAllCourses, setShowAllCourses] = useState(false);
+  const [enrolledCourseIds, setEnrolledCourseIds] = useState<string[]>([]);
+
+  const fetchCourses = async () => {
+    try {
+      let coursesToFetch;
+      if (showAllCourses) {
+        // Fetch all courses
+        coursesToFetch = await client.fetchAllCourses();
+        // Also fetch enrolled courses to track enrollment status
+        if (currentUser) {
+          const enrolledCourses = await client.findCoursesForUser(currentUser._id);
+          setEnrolledCourseIds(enrolledCourses.map((c: any) => c._id));
+        }
+      } else {
+        // Fetch only courses the user is enrolled in
+        if (currentUser) {
+          coursesToFetch = await client.findCoursesForUser(currentUser._id);
+          setEnrolledCourseIds(coursesToFetch.map((c: any) => c._id));
+        } else {
+          coursesToFetch = [];
+        }
+      }
+      dispatch(setCourses(coursesToFetch));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const onAddNewCourse = async () => {
+    const newCourse = await client.createCourse(course);
+    dispatch(setCourses([ ...courses, newCourse ]));
+  };
+  const onDeleteCourse = async (courseId: string) => {
+    const status = await client.deleteCourse(courseId);
+    dispatch(setCourses(courses.filter((course: any) => course._id !== courseId)));
+  };
+  const onUpdateCourse = async () => {
+    await client.updateCourse(course);
+    dispatch(setCourses(courses.map((c: any) => {
+        if (c._id === course._id) { return course; }
+        else { return c; }
+    })));
+  };
+
+  const handleEnroll = async (courseId: string) => {
+    try {
+      await client.enrollUserInCourse(currentUser._id, courseId);
+      dispatch(enrollUser({ userId: currentUser._id, courseId }));
+      // Refresh courses to update the view
+      await fetchCourses();
+    } catch (error) {
+      console.error("Error enrolling in course:", error);
+    }
+  };
+
+  const handleUnenroll = async (courseId: string) => {
+    try {
+      await client.unenrollUserFromCourse(currentUser._id, courseId);
+      dispatch(unenrollUser({ userId: currentUser._id, courseId }));
+      // Refresh courses to update the view
+      await fetchCourses();
+    } catch (error) {
+      console.error("Error unenrolling from course:", error);
+    }
+  };
+
+  // fetch courses on mount and whenever currentUser or showAllCourses changes
+  useEffect(() => {
+    fetchCourses();
+  }, [currentUser, showAllCourses]);
 
   // Check if user is faculty or admin (can add/edit/delete courses)
   const isFaculty = currentUser?.role === "FACULTY" || currentUser?.role === "ADMIN";
 
-  // Check if user is enrolled in a course
-  const isEnrolledInCourse = (courseId: string) => {
-    return enrollments.some(
-      (enrollment: any) =>
-        enrollment.user === currentUser?._id && enrollment.course === courseId
-    );
-  };
-
-  // Get courses to display based on toggle state
-  const coursesToDisplay = showAllCourses
-    ? courses
-    : courses.filter((course: any) => isEnrolledInCourse(course._id));
+  // Server returns the appropriate courses for the current user,
+  // so display the courses directly (server-side filtering)
+  const coursesToDisplay = courses;
 
   // Don't render if no current user
   if (!currentUser) {
@@ -67,15 +128,12 @@ export default function Dashboard() {
           <h5>
             New Course
             {/* Add button if the user is faculty */}
-            <button
-              className="btn btn-primary float-end"
-              onClick={() => dispatch(addNewCourse(course))}
-            >
+            <button onClick={onAddNewCourse} className="btn btn-primary float-end" id="wd-add-new-course-click" >
               Add
             </button>
             <button
               className="btn btn-warning me-2 float-end"
-              onClick={() => dispatch(updateCourse(course))}
+              onClick={onUpdateCourse}
               id="wd-update-course-click"
             >
               Update
@@ -98,14 +156,14 @@ export default function Dashboard() {
 
       <div className="d-flex justify-content-between align-items-center">
         <h2 id="wd-dashboard-published">
-          {/* Toggling between all courses vs pub'd courses */}
-          {showAllCourses ? "All Courses" : "Published Courses"} ({coursesToDisplay.length})
+          {/* Toggling between all courses vs enrolled courses */}
+          {showAllCourses ? "All Courses" : "Enrolled Courses"} ({coursesToDisplay.length})
         </h2>
         <Button
           variant="primary"
           onClick={() => setShowAllCourses(!showAllCourses)}
         >
-          {showAllCourses ? "Show My Courses" : "Enrollments"}
+          {showAllCourses ? "Show My Courses" : "Show All Courses"}
         </Button>
       </div>
       <hr />
@@ -141,34 +199,35 @@ export default function Dashboard() {
                         {course.description}
                       </CardText>
 
-                      {/* Show different buttons based on enrollment status and user role */}
-                      {isEnrolledInCourse(course._id) || isFaculty ? (
+                      {/* Show Go button and enrollment controls for students */}
+                      <Button variant="primary"> Go </Button>
+                      {!isFaculty && (
                         <>
-                          <Button variant="primary"> Go </Button>
-                          {!isFaculty && (
+                          {enrolledCourseIds.includes(course._id) ? (
                             <Button
                               variant="danger"
                               className="float-end"
                               onClick={(event) => {
                                 event.preventDefault();
-                                dispatch(unenrollUser({ userId: currentUser._id, courseId: course._id }));
+                                handleUnenroll(course._id);
                               }}
                             >
                               Unenroll
                             </Button>
+                          ) : (
+                            showAllCourses && (
+                              <Button
+                                variant="success"
+                                className="float-end"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  handleEnroll(course._id);
+                                }}
+                              >
+                                Enroll
+                              </Button>
+                            )
                           )}
-                        </>
-                      ) : (
-                        <>
-                          <Button
-                            variant="success"
-                            onClick={(event) => {
-                              event.preventDefault();
-                              dispatch(enrollUser({ userId: currentUser._id, courseId: course._id }));
-                            }}
-                          >
-                            Enroll
-                          </Button>
                         </>
                       )}
 
@@ -178,7 +237,7 @@ export default function Dashboard() {
                           <button
                             onClick={(event) => {
                               event.preventDefault();
-                              dispatch(deleteCourse(course._id));
+                              onDeleteCourse(course._id);
                             }}
                             className="btn btn-danger float-end"
                             id="wd-delete-course-click"
@@ -203,97 +262,6 @@ export default function Dashboard() {
               </Col>
             ))}
         </Row>
-
-        {/* <Col>
-            <Card className="wd-dashboard-course">
-              <Link href="/Courses/1101" className="wd-dashboard-course-link text-decoration-none text-dark">
-                <CardImg variant="top" src="/images/nodejs.jpg" width="100%" height={160} />
-                <CardBody>
-                  <h5>CS1101 Node.js</h5>
-                  <p className="wd-dashboard-course-title">
-                    Backend Development with Node.js
-                  </p>
-                  <button className="btn btn-primary">Go</button>
-                </CardBody>
-              </Link>
-            </Card>
-          </Col>
-
-          <Col>
-            <Card className="wd-dashboard-course">
-              <Link href="/Courses/1102" className="wd-dashboard-course-link text-decoration-none text-dark">
-                <CardImg variant="top" src="/images/nextjs.jpg" width="100%" height={160} />
-                <CardBody>
-                  <h5>CS1102 Next.js</h5>
-                  <p className="wd-dashboard-course-title">
-                    Modern React Framework
-                  </p>
-                  <button className="btn btn-primary">Go</button>
-                </CardBody>
-              </Link>
-            </Card>
-          </Col>
-
-          <Col>
-            <Card className="wd-dashboard-course">
-              <Link href="/Courses/1103" className="wd-dashboard-course-link text-decoration-none text-dark">
-                <CardImg variant="top" src="/images/js.jpg" width="100%" height={160} />
-                <CardBody>
-                  <h5>CS1103 JavaScript</h5>
-                  <p className="wd-dashboard-course-title">
-                    Intro to JavaScript
-                  </p>
-                  <button className="btn btn-primary">Go</button>
-                </CardBody>
-              </Link>
-            </Card>
-          </Col>
-
-          <Col>
-            <Card className="wd-dashboard-course">
-              <Link href="/Courses/1104" className="wd-dashboard-course-link text-decoration-none text-dark">
-                <CardImg variant="top" src="/images/css.jpg" width="100%" height={160} />
-                <CardBody>
-                  <h5>CS1104 CSS</h5>
-                  <p className="wd-dashboard-course-title">
-                    CSS and Tailwind
-                  </p>
-                  <button className="btn btn-primary">Go</button>
-                </CardBody>
-              </Link>
-            </Card>
-          </Col>
-
-          <Col>
-            <Card className="wd-dashboard-course">
-              <Link href="/Courses/1105" className="wd-dashboard-course-link text-decoration-none text-dark">
-                <CardImg variant="top" src="/images/mongo.jpg" width="100%" height={160} />
-                <CardBody>
-                  <h5>CS1105 MongoDB</h5>
-                  <p className="wd-dashboard-course-title">
-                    Databases for the Web
-                  </p>
-                  <button className="btn btn-primary">Go</button>
-                </CardBody>
-              </Link>
-            </Card>
-          </Col>
-
-          <Col>
-            <Card className="wd-dashboard-course">
-              <Link href="/Courses/1106" className="wd-dashboard-course-link text-decoration-none text-dark">
-                <CardImg variant="top" src="/images/edge.jpg" width="100%" height={160} />
-                <CardBody>
-                  <h5>CS1106 Edge Computing</h5>
-                  <p className="wd-dashboard-course-title">
-                    Edge Computing in WebDev
-                  </p>
-                  <button className="btn btn-primary">Go</button>
-                </CardBody>
-              </Link>
-            </Card>
-          </Col>
-        </Row> */}
       </div>
     </div>
   );

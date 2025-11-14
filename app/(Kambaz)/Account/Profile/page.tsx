@@ -1,21 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Link from "next/link";
-import { redirect } from "next/dist/client/components/navigation";
+import { redirect } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentUser } from "../reducer";
 import { Form, FormControl, Button, Card, Container, Row, Col } from "react-bootstrap";
+import * as client from "../client";
 
 export default function Profile() {
   const [profile, setProfile] = useState<any>({});
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const updateProfile = async () => {
+    const updatedProfile = await client.updateUser(profile);
+    dispatch(setCurrentUser(updatedProfile));
+  };
   const fetchProfile = () => {
     if (!currentUser) return redirect("/Account/Signin");
     setProfile(currentUser);
   };
-  const signout = () => {
+  const signout = async () => {
+    await client.signout();
     dispatch(setCurrentUser(null));
     redirect("/Account/Signin");
   };
@@ -28,6 +34,7 @@ export default function Profile() {
       <h3>Profile</h3>
       {profile && (
         <div>
+          <button onClick={updateProfile} className="btn btn-primary w-100 mb-2"> Update </button>
           <FormControl
             id="wd-username"
             className="mb-2"
@@ -55,7 +62,7 @@ export default function Profile() {
           <FormControl
             id="wd-lastname"
             className="mb-2"
-            defaultValue={profile.lastName}
+            defaultValue={profile.lastName ? profile.lastName : "Last name missing"}
             onChange={(e) =>
               setProfile({ ...profile, lastName: e.target.value })
             }
@@ -83,9 +90,9 @@ export default function Profile() {
             <option value="FACULTY">Faculty</option>{" "}
             <option value="STUDENT">Student</option>
           </select>
-          <Button onClick={signout} className="w-100 mb-2" id="wd-signout-btn">
+          <button onClick={signout} className="wd-signout-btn btn btn-danger w-100">
             Sign out
-          </Button>
+          </button>
         </div>
       )}
     </div>
