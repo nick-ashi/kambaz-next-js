@@ -38,7 +38,7 @@ export default function Dashboard() {
   });
   const [showAllCourses, setShowAllCourses] = useState(false);
   const [enrolledCourseIds, setEnrolledCourseIds] = useState<string[]>([]);
-
+  
   const fetchCourses = async () => {
     try {
       let coursesToFetch;
