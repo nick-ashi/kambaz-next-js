@@ -4,10 +4,9 @@ const axiosWithCredentials = axios.create({ withCredentials: true });
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 const USERS_API = `${HTTP_SERVER}/api/users`;
 const COURSES_API = `${HTTP_SERVER}/api/courses`;
-const MODULES_API = `${HTTP_SERVER}/api/modules`;
 
-export const deleteModule = async (moduleId: string) => {
- const response = await axios.delete(`${MODULES_API}/${moduleId}`);
+export const deleteModule = async (courseId: string, moduleId: string) => {
+ const response = await axios.delete(`${COURSES_API}/${courseId}/modules/${moduleId}`);
  return response.data;
 };
 export const findModulesForCourse = async (courseId: string) => {
@@ -22,8 +21,8 @@ export const createModuleForCourse = async (courseId: string, module: any) => {
   );
   return response.data;
 };
-export const updateModule = async (module: any) => {
-  const { data } = await axios.put(`${MODULES_API}/${module._id}`, module);
+export const updateModule = async (courseId: string, module: any) => {
+  const { data } = await axios.put(`${COURSES_API}/${courseId}/modules/${module._id}`, module);
   return data;
 };
 
@@ -77,17 +76,14 @@ export const findAssignment = async (assignmentId: string) => {
 
 
 export const enrollUserInCourse = async (userId: string, courseId: string) => {
-  const { data } = await axiosWithCredentials.post(
-    `${USERS_API}/${userId}/courses/${courseId}`
-  );
-  return data;
+ const response = await axiosWithCredentials.post(`${USERS_API}/${userId}/courses/${courseId}`);
+ return response.data;
 };
 export const unenrollUserFromCourse = async (userId: string, courseId: string) => {
-  const { data } = await axiosWithCredentials.delete(
-    `${USERS_API}/${userId}/courses/${courseId}`
-  );
-  return data;
+ const response = await axiosWithCredentials.delete(`${USERS_API}/${userId}/courses/${courseId}`);
+ return response.data;
 };
+
 export const findEnrollmentsForUser = async (userId: string) => {
   const { data } = await axios.get(`${USERS_API}/${userId}/enrollments`);
   return data;
